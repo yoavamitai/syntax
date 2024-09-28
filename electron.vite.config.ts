@@ -16,13 +16,13 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
-    assetsInclude: 'src/renderer/src/assets/**',
+    assetsInclude: 'src/renderer/assets/**',
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/src'),
         '@shared': resolve('src/shared'),
         '@/hooks': resolve('src/renderer/src/hooks'),
-        '@/assets': resolve('src/renderer/src/assets'),
+        '@/assets': resolve('src/renderer/assets'),
         '@/store': resolve('src/renderer/src/store'),
         '@/components': resolve('src/renderer/src/components'),
         '@/mocks': resolve('src/renderer/src/mocks')
