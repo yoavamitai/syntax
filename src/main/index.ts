@@ -1,7 +1,10 @@
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
+import { enable, initialize } from '@electron/remote/main'
 import { app, BrowserWindow, ipcMain, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
+
+initialize()
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
@@ -12,16 +15,17 @@ function createWindow(): void {
     vibrancy: 'under-window',
     backgroundMaterial: 'acrylic',
     visualEffectState: 'active',
-    titleBarStyle: 'hidden',
+    frame: false,
     center: true,
     title: 'Syntax',
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: true,
+      sandbox: false,
       contextIsolation: true
     }
   })
+  enable(mainWindow.webContents)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()

@@ -16,3 +16,7 @@
     @apply overflow-hidden;
   }
 }
+
+/* .navbar {
+  -webkit-app-region: drag;
+} */
