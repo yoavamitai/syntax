@@ -9,8 +9,12 @@ function createWindow(): void {
     height: 670,
     show: false,
     autoHideMenuBar: true,
-    vibrancy: 'fullscreen-ui',
+    vibrancy: 'under-window',
     backgroundMaterial: 'acrylic',
+    visualEffectState: 'active',
+    titleBarStyle: 'hidden',
+    center: true,
+    title: 'Syntax',
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
